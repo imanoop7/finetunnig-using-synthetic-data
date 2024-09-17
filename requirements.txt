@@ -1,0 +1,5 @@
+faker==18.9.0
+scikit-learn==1.2.2
+openai==0.27.8
+tqdm==4.65.0
+langchain==0.0.184
