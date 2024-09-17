@@ -107,7 +107,7 @@ def generate_nlq_pair():
     }
 
 # Generate 1000 NLQ pairs
-dataset = [generate_nlq_pair() for _ in range(10000)]
+dataset = [generate_nlq_pair() for _ in range(1000)]
 
 # Save the dataset
 with open('nlq_dataset.json', 'w') as f:

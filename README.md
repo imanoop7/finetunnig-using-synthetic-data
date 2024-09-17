@@ -1,6 +1,6 @@
 # Natural Language to SQL Query Generator
 
-This project implements a system for generating SQL queries from natural language questions using a fine-tuned LLaMA model. It includes scripts for data generation, model fine-tuning, and inference with a user-friendly Gradio interface.
+This project implements a system for generating SQL queries from natural language questions using a fine-tuned LLaMA model. It includes scripts for data generation, model fine-tuning, inference with a user-friendly Gradio interface, and model evaluation.
 
 ## Project Structure
 
@@ -9,6 +9,7 @@ This project implements a system for generating SQL queries from natural languag
 - `prepare_data_for_finetuning.py`: Prepares the generated data for fine-tuning.
 - `finetune_llama.py`: Fine-tunes the LLaMA model on the prepared dataset.
 - `inference_llama.py`: Provides inference capabilities with a Gradio interface.
+- `evaluate_model.py`: Evaluates the fine-tuned model using various metrics.
 - `requirements.txt`: Lists all the required Python packages.
 
 ## Setup
@@ -50,7 +51,9 @@ Both scripts will generate a JSON file containing the NLQ pairs.
 ### 2. Data Preparation
 
 Prepare the generated data for fine-tuning:
-This script will create `train_data.txt` and `val_data.txt` files.
+```
+python prepare_data_for_finetuning.py
+```
 
 ### 3. Fine-tuning
 
@@ -62,6 +65,13 @@ This script will fine-tune the model and save it in the `./fine_tuned_llama3` di
 Run the inference script with the Gradio interface:
 
 This will launch a web interface where you can enter natural language queries and receive generated SQL queries.
+
+### 5. Model Evaluation
+
+Evaluate the fine-tuned model using various metrics:
+`python evaluate_model.py`
+This script will calculate BLEU scores, ROUGE scores, and exact match accuracy for a subset of the test data and save the results to `evaluation_results.json`.
+
 
 ## Model Details
 
@@ -89,6 +99,15 @@ The script splits the data into training and validation sets, and uses the Huggi
 ## Inference
 
 The inference script (`inference_llama.py`) loads the fine-tuned model and provides a Gradio interface for easy interaction. Users can input natural language queries and receive generated SQL queries in real-time.
+
+## Evaluation
+
+The evaluation script (`evaluate_model.py`) assesses the performance of the fine-tuned model using the following metrics:
+
+- BLEU score: Measures the similarity between the generated SQL query and the reference SQL query.
+- ROUGE-L score: Evaluates the longest common subsequence between the generated and reference SQL queries.
+- Exact match accuracy: Calculates the percentage of generated SQL queries that exactly match the reference queries.
+
 
 ## Requirements
 
