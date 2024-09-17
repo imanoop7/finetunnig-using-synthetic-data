@@ -1,6 +1,6 @@
 # Natural Language to SQL Query Generator
 
-This project implements a system for generating SQL queries from natural language questions using a fine-tuned LLaMA model. It includes scripts for data generation, model fine-tuning, inference with a user-friendly Gradio interface, and model evaluation.
+This project implements a system for generating SQL queries from natural language questions using a fine-tuned LLaMA model. It includes scripts for data generation, model fine-tuning, and inference with a user-friendly Gradio interface.
 
 ## Project Structure
 
@@ -9,7 +9,6 @@ This project implements a system for generating SQL queries from natural languag
 - `prepare_data_for_finetuning.py`: Prepares the generated data for fine-tuning.
 - `finetune_llama.py`: Fine-tunes the LLaMA model on the prepared dataset.
 - `inference_llama.py`: Provides inference capabilities with a Gradio interface.
-- `evaluate_model.py`: Evaluates the fine-tuned model using various metrics.
 - `requirements.txt`: Lists all the required Python packages.
 
 ## Setup
@@ -51,9 +50,7 @@ Both scripts will generate a JSON file containing the NLQ pairs.
 ### 2. Data Preparation
 
 Prepare the generated data for fine-tuning:
-```
-python prepare_data_for_finetuning.py
-```
+This script will create `train_data.txt` and `val_data.txt` files.
 
 ### 3. Fine-tuning
 
